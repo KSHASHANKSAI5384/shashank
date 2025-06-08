@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dhanush - The Versatile Star</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #1f1c2c, #6b55d8);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        img {
+            width: 250px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px #fff;
+            margin-top: 20px;
+            transition: transform 0.5s ease;
+            animation: popIn 1.5s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-top: 20px;
+            animation: slideIn 1s ease;
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(-40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 22px;
+            margin: 20px;
+            animation: fadeIn 2s ease;
+        }
+
+        .bio-box {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 900px;
+            text-align: left;
+            animation: fadeIn 2s ease;
+        }
+
+        h2 {
+            color: #ffd700;
+        }
+
+        ul {
+            text-align: left;
+        }
+
+        button {
+            background: #e0d42c;
+            color: white;
+            padding: 12px 25px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        button:hover {
+            background: #91da32;
+            transform: scale(1.1);
+        }
+
+        video {
+            margin-top: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            animation: fadeIn 2s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dhanush - The Versatile Star</h1>
+    <img src="{{ url_for('static', filename='dhanushgg.jpeg') }}" alt="Dhanush">
+    <div class="quote">"I don’t believe in luck. I believe in hard work."</div>
+
+    <audio id="audio" src="{{ url_for('static', filename='dhan.mp3') }}"></audio>
+    <button onclick="playAudio()">🎧 Play Dhanush Quote</button>
+    <button onclick="stopAudio()">⏹ Stop Quote</button>
+
+    <script>
+        const audio = document.getElementById('audio');
+        function playAudio() { audio.play(); }
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+    </script>
+
+    <div class="bio-box">
+        <h2>Biography</h2>
+        <p>
+            Venkatesh Prabhu Kasthuri Raja, known by his stage name *Dhanush*, is one of India's most versatile and celebrated actors.
+            Born on July 28, 1983, in Chennai, he began his career in Tamil cinema and has made a mark with powerful performances, soulful songs, and international acclaim.
+        </p>
+        <p>
+            Apart from acting, Dhanush is a lyricist, playback singer, producer, and director. His dedication and transformation across roles—from a simple boy next door to intense characters—have won him immense respect.
+        </p>
+
+        <h2>Achievements</h2>
+        <ul>
+            <li><strong>National Film Awards (2 times)</strong> – Best Actor</li>
+            <li><strong>Filmfare Awards South</strong> – Multiple wins for acting</li>
+            <li><strong>“Why This Kolaveri Di”</strong> – Viral hit, bringing him global fame</li>
+            <li><strong>Hollywood Debut</strong> – In the film <em>The Extraordinary Journey of the Fakir</em></li>
+            <li><strong>International Fame</strong> – Featured in Forbes India Celebrity 100 list</li>
+        </ul>
+    </div>
+
+    <h2 style="margin-top: 50px;">Watch Dhanush in Action</h2>
+    <video width="560" height="315" controls>
+        <source src="{{ url_for('static', filename='dhan.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>
